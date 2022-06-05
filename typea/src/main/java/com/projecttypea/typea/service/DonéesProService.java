@@ -37,12 +37,12 @@ public class DonéesProService {
     public int addDonesPro(DonéesPro donne, HttpSession session) {
         User currentUser = userDao.findByEmail((String) session.getAttribute("session"));
         try {
-            if (currentUser.getDonne() != null) {
+            if (currentUser.getDonne() == null) {
                 currentUser.setDonne(donne);
                 donéesProDao.save(donne);
                 return -1;
 
-            } else if (currentUser.getDonne() == null) {
+            } else if (currentUser.getDonne() != null) {
                 return 1;
             } else {
                 return -3;
