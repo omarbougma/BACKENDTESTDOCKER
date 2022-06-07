@@ -7,7 +7,7 @@ services:
     environment:
       - MYSQL_DATABASE=etablissement
       - MYSQL_USER=root
-      - MYSQL_PASSWORD=
+      - MYSQL_ROOT_PASSWORD=admin
   springboot-docker-cotnainer:
     image: springboot-docker-container
     container_name: springboot-docker-container
