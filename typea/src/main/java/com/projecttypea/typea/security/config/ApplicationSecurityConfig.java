@@ -1,8 +1,5 @@
 package com.projecttypea.typea.security.config;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.projecttypea.typea.security.enums.UserRoles;
 
 import org.springframework.beans.factory.annotation.Autowired;

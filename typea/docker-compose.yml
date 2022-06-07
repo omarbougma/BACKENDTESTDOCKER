@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  mysql-standalone:
+    image: mysql:latest
+    container_name: mysql-standalone
+    environment:
+      -MYSQL_DATABASE=etablissement
+      -MYSQL_USER=root
+      -MYSQL_PASSWORD=
+  springboot-docker-cotnainer:
+    image: springboot-docker-container
+    container_name: springboot-docker-container
+    ports:
+      -8080:8080
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      -mysql-standalone  
