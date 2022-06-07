@@ -15,5 +15,7 @@ services:
     build: 
       context: ./
       dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-standalone:3306/etablissement
     depends_on:
       - mysql-standalone  
