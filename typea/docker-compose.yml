@@ -4,9 +4,11 @@ services:
   mysql-standalone:
     image: mysql:latest
     container_name: mysql-standalone
+    ports:
+      - 3306:3306
     environment:
+      - MYSQL_USER=root
       - MYSQL_DATABASE=etablissement
-      - MYSQL_ROOT_PASSWORD=admin
   springboot-docker-cotnainer:
     image: springboot-docker-container
     container_name: springboot-docker-container
@@ -15,5 +17,7 @@ services:
     build: 
       context: ./
       dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-standalone:3306/etablissement
     depends_on:
       - mysql-standalone  
